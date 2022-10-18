@@ -135,9 +135,9 @@ footer {
   padding-left: 5%;
 }
 
-.hidden {
+/* .hidden {
   display: none;
-}
+} */
 
 .active {
   display: grid;
