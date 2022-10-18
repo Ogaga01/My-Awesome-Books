@@ -10,7 +10,8 @@ const removeBtn = document.querySelectorAll('.remove')
 const titleInput = document.querySelector('.title')
 const authorInput = document.querySelector('.author')
 const addBtn = document.querySelector('.add')
-const books = []
+let button;
+let books = []
 
 class Book {
   date = new Date();
@@ -29,7 +30,7 @@ const renderBook = (book) => {
                         by
                         <span class="author">${book.author}</span>
                     </p>
-                    <button class="submit" type="button">Remove</button>
+                    <button class="submit remove" type="button">Remove</button>
                 </li>
     `;
     bookList.insertAdjacentHTML('afterbegin', html)
@@ -50,3 +51,16 @@ addBtn.addEventListener('click', () => {
     authorInput.value = titleInput.value = ''
 })
 
+bookList.addEventListener('click', (e) => {
+    if (e.target.classList.contains('remove')) {
+     button = e.target
+    }
+    const bookLi = button.closest(".list-item");
+    books = books.filter((book) => {
+             return book.id !== bookLi.dataset.id
+    })
+    bookList.innerHTML = ''
+     books.forEach((book) => {
+       renderBook(book);
+     });
+})
