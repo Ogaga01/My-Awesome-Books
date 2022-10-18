@@ -99,3 +99,22 @@ header {
     border-left: 2px solid #000;
     border-top: 2px solid #000;
 }
+
+.book-inputs {
+    display: grid;
+    width: 70%;
+}
+
+.input {
+    width: 70%;
+    height: 40px;
+    border: 3px solid black;
+    margin-left: 15%;
+    margin-top: 3%;
+}
+
+.add {
+    justify-self: flex-end;
+    margin-right: 14%;
+    margin-top: 2%;
+}
