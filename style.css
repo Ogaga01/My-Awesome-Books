@@ -1,0 +1,52 @@
+/* font-family: 'Quicksand', sans-serif; */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+header {
+    width: 100%;
+    display: grid;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin-left: 2.5%;
+    border: 5px solid black;
+}
+
+#title {
+    padding-left: 2%;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.nav__links {
+    list-style-type: none;
+    display: flex;
+    width: 30%;
+    height: 25px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1.5%;
+}
+
+.nav__item{
+    width: 30%;
+    font-size: 1.3rem;
+    text-align: center;
+    height: 25px;
+    border-right: 2px solid black;
+}
+
+.nav__links li:last-child{
+    border-right: none;
+}
