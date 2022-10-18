@@ -122,13 +122,23 @@ header {
 
 footer {
     display: flex;
+    position: fixed;
     justify-content: space-between;
     width: 95%;
     margin-left: 2.5%;
     border: 5px solid black;
+    bottom: 0;
 }
 
 .para {
     font-size: 1.3rem;
     padding-left: 5%;
+}
+
+.hidden {
+    display: none;
+}
+
+.active {
+    display: grid;
 }
