@@ -142,3 +142,108 @@ footer {
 .active {
     display: grid;
 }
+
+@media all and (max-width: 750px) {
+    header {
+        width: 100%;
+        display: grid;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        width: 95%;
+        margin-left: 2.5%;
+        border: 5px solid black;
+    }
+
+    .nav__links {
+        list-style-type: none;
+        display: grid;
+        width: 30%;
+        height: 65px;
+        justify-content: flex-end;
+        margin-top: 1.5%;
+        padding-right: 2%;
+        margin-right: 0;
+    }
+
+    .nav__item{
+        width: 100%;
+        font-size: 1.3rem;
+        text-align: center;
+        height: 25px;
+        border-bottom: 2px solid black;
+    }
+
+    .nav__links li:last-child{
+        border-bottom: none;
+    }
+
+    .app-view {
+        margin-top: 5%;
+        width: 100%;
+    }
+
+    .section {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        width: 90%;
+        padding-left: 5%;
+    }
+
+    .heading {
+        font-size:1.8rem;
+        width: 90%;
+        text-align: center;
+    }
+
+    .book-list {
+        list-style-type: none;
+        width: 90%;
+        border: 5px solid black;
+        padding: 0;
+    }
+
+    .book-list li:nth-child(odd) {
+        background-color: #C1C1C1;
+    }
+
+    .input {
+        width: 70%;
+        height: 30px;
+        border: 3px solid black;
+        margin-left: 15%;
+        margin-top: 3%;
+    }
+
+    .add {
+        justify-self: flex-end;
+        margin-right: 14%;
+        margin-top: 2%;
+    }
+
+    footer {
+        display: flex;
+        position: fixed;
+        justify-content: space-between;
+        width: 95%;
+        margin-left: 2.5%;
+        border: 5px solid black;
+        bottom: 0;
+    }
+
+    .para {
+        font-size: 1.3rem;
+        padding-left: 5%;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .active {
+        display: grid;
+    }
+}
