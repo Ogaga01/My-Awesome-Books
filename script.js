@@ -10,7 +10,9 @@ const removeBtn = document.querySelectorAll(".remove");
 const titleInput = document.querySelector(".title");
 const authorInput = document.querySelector(".author");
 const addBtn = document.querySelector(".add");
+const sections = document.querySelectorAll('.section')
 let button;
+let navBtn
 let books = [];
 
 class Book {
@@ -64,3 +66,16 @@ bookList.addEventListener("click", (e) => {
     renderBook(book);
   });
 });
+
+
+nav.addEventListener('click', (e) => {
+    if (e.target.classList.contains('nav__link')) {
+        navBtn = e.target
+    }
+    const navLi = navBtn.getAttribute('href')
+    console.log(navLi)
+    sections.forEach((section) => {
+        return section.classList.remove('active')
+    })
+    document.querySelector(navLi).classList.toggle('active')
+})
