@@ -41,7 +41,7 @@ To run the project open the downloaded folder (after extraction) then run the "*
 
 ## Authors
 
-👤 **Manel Hammouche**
+👤 **Ogaga Iyara**
 
 - GitHub: [@Ogaga01](https://github.com/Ogaga01)
 - Twitter: [@i_ogaga_n](https://twitter.com/i_ogaga_n)
