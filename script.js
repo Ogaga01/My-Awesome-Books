@@ -10,9 +10,9 @@ const removeBtn = document.querySelectorAll(".remove");
 const titleInput = document.querySelector(".title");
 const authorInput = document.querySelector(".author");
 const addBtn = document.querySelector(".add");
-const sections = document.querySelectorAll('.section')
+const sections = document.querySelectorAll(".section");
 let button;
-let navBtn
+let navBtn;
 let books = [];
 
 class Book {
@@ -25,13 +25,13 @@ class Book {
 }
 
 const checkBooks = () => {
-    if (books.length > 0) {
-      bookList.classList.remove("hidden");
-    }
-    if (books.length === 0){
-        bookList.classList.add("hidden");
-    }
-}
+  if (books.length > 0) {
+    bookList.classList.remove("hidden");
+  }
+  if (books.length === 0) {
+    bookList.classList.add("hidden");
+  }
+};
 
 const renderBook = (book) => {
   const html = `
@@ -75,7 +75,7 @@ addBtn.addEventListener("click", () => {
   book = new Book(title, author);
   renderBook(book);
   books.push(book);
-  setLocalStorage(books)
+  setLocalStorage(books);
   console.log(books);
 
   authorInput.value = titleInput.value = "";
@@ -89,24 +89,28 @@ bookList.addEventListener("click", (e) => {
   books = books.filter((book) => {
     return book.id !== bookLi.dataset.id;
   });
-  setLocalStorage(books)
+  setLocalStorage(books);
   bookList.innerHTML = "";
   books.forEach((book) => {
     renderBook(book);
   });
 });
 
-
-nav.addEventListener('click', (e) => {
-    if (e.target.classList.contains('nav__link')) {
-        navBtn = e.target
-    }
-    const navLi = navBtn.getAttribute('href')
-    
-    sections.forEach((section) => {
-        return section.classList.remove('active')
+nav.addEventListener("click", (e) => {
+  if (e.target.classList.contains("nav__link")) {
+    navBtn = e.target;
+  }
+    const navLi = navBtn.getAttribute("href");
+    const siblings = navBtn.closest(".nav").querySelectorAll(".nav__link");
+    siblings.forEach((sibling) => {
+        sibling.classList.remove('blue')
+        if (sibling === navBtn){sibling.classList.toggle('blue')}
     })
-    document.querySelector(navLi).classList.toggle('active')
 
-    checkBooks()
-})
+  sections.forEach((section) => {
+    return section.classList.remove("active");
+  });
+  document.querySelector(navLi).classList.toggle("active");
+
+  checkBooks();
+});

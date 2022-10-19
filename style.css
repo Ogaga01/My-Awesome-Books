@@ -143,6 +143,10 @@ footer {
   display: grid;
 }
 
+.blue {
+    color: blue;
+}
+
 @media all and (max-width: 750px) {
   header {
     width: 100%;
