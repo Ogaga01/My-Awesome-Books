@@ -24,6 +24,15 @@ class Book {
   }
 }
 
+const checkBooks = () => {
+    if (books.length > 0) {
+      bookList.classList.remove("hidden");
+    }
+    if (books.length === 0){
+        bookList.classList.add("hidden");
+    }
+}
+
 const renderBook = (book) => {
   const html = `
         <li class="list-item" data-id=${book.id}>
@@ -73,9 +82,11 @@ nav.addEventListener('click', (e) => {
         navBtn = e.target
     }
     const navLi = navBtn.getAttribute('href')
-    console.log(navLi)
+    
     sections.forEach((section) => {
         return section.classList.remove('active')
     })
     document.querySelector(navLi).classList.toggle('active')
+
+    checkBooks()
 })
