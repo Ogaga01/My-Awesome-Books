@@ -19,7 +19,7 @@ Build a books library using:
 - Linters (Lighthouse, Webhint, Stylelint, Eslint)
 
 ## Live Demo
-Check out the **live demo** [here.](https://)
+Check out the **live demo** [here.](https://ogaga01.github.io/My-Awesome-Books/)
 
 
 ## Getting Started
@@ -60,7 +60,6 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Hat tip to code reviewers and to everyone who reviewed the project and made suggestions.
-- Thank you [Taheny Belguith](https://github.com/TahenyBELGUITH) for your help and the improvement suggestions.
 
 ## 📝 License
 
