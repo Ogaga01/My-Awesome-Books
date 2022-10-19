@@ -1,35 +1,41 @@
-/* eslint-disable */
-
-"use strict";
-
-const nav = document.querySelector(".nav");
-const navLinks = document.querySelector(".nav__links");
-const date = document.querySelector(".date");
-const bookList = document.querySelector(".book-list");
-const removeBtn = document.querySelectorAll(".remove");
-const titleInput = document.querySelector(".title");
-const authorInput = document.querySelector(".author");
-const addBtn = document.querySelector(".add");
-const sections = document.querySelectorAll(".section");
+const nav = document.querySelector('.nav');
+const date = document.querySelector('.date');
+const bookList = document.querySelector('.book-list');
+const titleInput = document.querySelector('.title');
+const authorInput = document.querySelector('.author');
+const addBtn = document.querySelector('.add');
+const sections = document.querySelectorAll('.section');
 let button;
 let navBtn;
 let books = [];
 
 class Book {
   date = new Date();
-  id = (Date.now() + "").slice(-10);
+
+  id = (`${Date.now()}`).slice(-10);
+
   constructor(title, author) {
     this.title = title;
     this.author = author;
   }
 }
 
+function getDate() {
+  const currentdate = new Date();
+  const datetime = `${currentdate.getDate()}/${
+    currentdate.getMonth() + 1
+  }/${currentdate.getFullYear()}, ${currentdate.getHours()}:${currentdate.getMinutes()}:${currentdate.getSeconds()}`;
+  date.innerHTML = datetime;
+}
+
+setInterval(getDate, 1000);
+
 const checkBooks = () => {
   if (books.length > 0) {
-    bookList.classList.remove("hidden");
+    bookList.classList.remove('hidden');
   }
   if (books.length === 0) {
-    bookList.classList.add("hidden");
+    bookList.classList.add('hidden');
   }
 };
 
@@ -44,15 +50,15 @@ const renderBook = (book) => {
                     <button class="submit remove" type="button">Remove</button>
                 </li>
     `;
-  bookList.insertAdjacentHTML("afterbegin", html);
+  bookList.insertAdjacentHTML('afterbegin', html);
 };
 
 const setLocalStorage = () => {
-  localStorage.setItem("books", JSON.stringify(books));
+  localStorage.setItem('books', JSON.stringify(books));
 };
 
 const getLocalStorage = () => {
-  const data = JSON.parse(localStorage.getItem("books"));
+  const data = JSON.parse(localStorage.getItem('books'));
 
   if (!data) return;
 
@@ -65,52 +71,49 @@ const getLocalStorage = () => {
 
 getLocalStorage();
 
-addBtn.addEventListener("click", () => {
+addBtn.addEventListener('click', () => {
   const author = authorInput.value;
   const title = titleInput.value;
-  let book;
 
   if (!author || !title) return;
 
-  book = new Book(title, author);
+  const book = new Book(title, author);
   renderBook(book);
   books.push(book);
   setLocalStorage(books);
-  console.log(books);
 
-  authorInput.value = titleInput.value = "";
+  authorInput.value = '';
+  titleInput.value = '';
 });
 
-bookList.addEventListener("click", (e) => {
-  if (e.target.classList.contains("remove")) {
+bookList.addEventListener('click', (e) => {
+  if (e.target.classList.contains('remove')) {
     button = e.target;
   }
-  const bookLi = button.closest(".list-item");
-  books = books.filter((book) => {
-    return book.id !== bookLi.dataset.id;
-  });
+  const bookLi = button.closest('.list-item');
+  books = books.filter((book) => book.id !== bookLi.dataset.id);
   setLocalStorage(books);
-  bookList.innerHTML = "";
+  bookList.innerHTML = '';
   books.forEach((book) => {
     renderBook(book);
   });
 });
 
-nav.addEventListener("click", (e) => {
-  if (e.target.classList.contains("nav__link")) {
+nav.addEventListener('click', (e) => {
+  if (e.target.classList.contains('nav__link')) {
     navBtn = e.target;
   }
-    const navLi = navBtn.getAttribute("href");
-    const siblings = navBtn.closest(".nav").querySelectorAll(".nav__link");
-    siblings.forEach((sibling) => {
-        sibling.classList.remove('blue')
-        if (sibling === navBtn){sibling.classList.toggle('blue')}
-    })
-
-  sections.forEach((section) => {
-    return section.classList.remove("active");
+  const navLi = navBtn.getAttribute('href');
+  const siblings = navBtn.closest('.nav').querySelectorAll('.nav__link');
+  siblings.forEach((sibling) => {
+    sibling.classList.remove('blue');
+    if (sibling === navBtn) {
+      sibling.classList.toggle('blue');
+    }
   });
-  document.querySelector(navLi).classList.toggle("active");
+
+  sections.forEach((section) => section.classList.remove('active'));
+  document.querySelector(navLi).classList.toggle('active');
 
   checkBooks();
 });

@@ -147,6 +147,13 @@ footer {
     color: blue;
 }
 
+.date {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3%;
+    margin-top: 1.5%;
+}
+
 @media all and (max-width: 750px) {
   header {
     width: 100%;
