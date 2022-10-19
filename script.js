@@ -47,6 +47,24 @@ const renderBook = (book) => {
   bookList.insertAdjacentHTML("afterbegin", html);
 };
 
+const setLocalStorage = () => {
+  localStorage.setItem("books", JSON.stringify(books));
+};
+
+const getLocalStorage = () => {
+  const data = JSON.parse(localStorage.getItem("books"));
+
+  if (!data) return;
+
+  books = data;
+
+  books.forEach((book) => {
+    renderBook(book);
+  });
+};
+
+getLocalStorage();
+
 addBtn.addEventListener("click", () => {
   const author = authorInput.value;
   const title = titleInput.value;
@@ -57,6 +75,7 @@ addBtn.addEventListener("click", () => {
   book = new Book(title, author);
   renderBook(book);
   books.push(book);
+  setLocalStorage(books)
   console.log(books);
 
   authorInput.value = titleInput.value = "";
@@ -70,6 +89,7 @@ bookList.addEventListener("click", (e) => {
   books = books.filter((book) => {
     return book.id !== bookLi.dataset.id;
   });
+  setLocalStorage(books)
   bookList.innerHTML = "";
   books.forEach((book) => {
     renderBook(book);
