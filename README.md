@@ -19,7 +19,7 @@ Build a books library using:
 - Linters (Lighthouse, Webhint, Stylelint, Eslint)
 
 ## Live Demo
-Check out the **live demo** [here.](https://ogaga01.github.io/My-Awesome-Books/)
+Check out the **live demo**(https://awesomebookss.netlify.app/))
 
 
 ## Getting Started
